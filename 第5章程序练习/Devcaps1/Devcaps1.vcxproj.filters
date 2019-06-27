@@ -15,12 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sysmets.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="源.c">
+    <ClCompile Include="Devcaps1.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

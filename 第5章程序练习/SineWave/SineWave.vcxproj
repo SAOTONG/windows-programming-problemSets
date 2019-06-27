@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{39EADF31-89DC-428B-BF4B-AA2255E752A6}</ProjectGuid>
+    <ProjectGuid>{19B36F38-9CA3-4239-BD55-37C53B41D6AF}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>SysMetsGoodScroll</RootNamespace>
+    <RootNamespace>SineWave</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -94,8 +94,8 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>WINMM.LIB;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>WINMM.LIB</AdditionalLibraryDirectories>
+      <AdditionalDependencies>WINMM.LIB;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -145,9 +145,6 @@
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="sysmets.h" />
-  </ItemGroup>
   <ItemGroup>
     <ClCompile Include="源.c" />
   </ItemGroup>
