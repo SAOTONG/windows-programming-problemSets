@@ -18,7 +18,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	HWND         hwnd;
 	MSG          msg;
 	WNDCLASS     wndclass;
-
+	//
 	wndclass.style = CS_HREDRAW | CS_VREDRAW;
 	wndclass.lpfnWndProc = WndProc;
 	wndclass.cbClsExtra = 0;
@@ -30,6 +30,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	wndclass.lpszMenuName = NULL;
 	wndclass.lpszClassName = szAppName;
 
+	//注册窗口类
 	if (!RegisterClass(&wndclass))
 	{
 		MessageBox(NULL, TEXT("Program requires Windows NT!"),
@@ -37,15 +38,19 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		return 0;
 	}
 
+	//根据窗口类创建窗口
 	hwnd = CreateWindow(szAppName, TEXT("Sine Wave Using Polyline"),
 		WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, CW_USEDEFAULT,
 		CW_USEDEFAULT, CW_USEDEFAULT,
 		NULL, NULL, hInstance, NULL);
 
+	//展示窗户口
 	ShowWindow(hwnd, iCmdShow);
+	//该函数向窗口过程发送一个WM_PAINT消息来绘制客户区域
 	UpdateWindow(hwnd);
 
+	//从消息队列取消息
 	while (GetMessage(&msg, NULL, 0, 0))
 	{
 		TranslateMessage(&msg);
@@ -78,10 +83,10 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 		return 0;
 
 	case WM_PAINT:
-		hdc = BeginPaint(hwnd, &ps);
+		hdc =	(hwnd, &ps);
 
 		//网格
-		/*GetClientRect(hwnd, &rect);
+		GetClientRect(hwnd, &rect);
 		for ( x = 0; x < rect.right; x+=100)
 		{
 			MoveToEx(hdc, x, 0, NULL);
@@ -91,7 +96,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 		{
 			MoveToEx(hdc, 0, y, NULL);
 			LineTo(hdc, rect.right, y);
-		}*/
+		}
 
 		//矩形
 		/*MoveToEx(hdc, apt[0].x, apt[0].y, NULL);
@@ -117,16 +122,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 			apt[i].y = (int)(cyClient / 2 * (1 - sin(TWOPI * i / NUM)));
 		}
 
-		Polyline(hdc, apt, NUM);*/
-
-		//边界框函数Rectangle画矩形(带白色填充)
-		//Rectangle(hdc, 10, 10, 50, 40);
-		
-		//边界框函数Ellipse画椭圆(带白色填充)
-		/*Ellipse(hdc, 1, 1, 50, 40);*/
-
-		//边界框函数RoundRect画圆角矩形(带白色填充)
-		RoundRect(hdc, 1, 1, 50, 40, 15, 15);
+		Polyline(hdc, apt, NUM);
 		return 0;
 
 	case WM_DESTROY:
