@@ -107,7 +107,8 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 		/*MoveToEx(hdc, apt[0].x, apt[0].y, NULL);
 		PolylineTo(hdc, apt + 1, 4);*/
 
-		MoveToEx(hdc, 0, cyClient / 2, NULL);
+		//ÕýÏÒ²¨
+		/*MoveToEx(hdc, 0, cyClient / 2, NULL);
 		LineTo(hdc, cxClient, cyClient / 2);
 
 		for (i = 0; i < NUM; i++)
@@ -116,7 +117,16 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 			apt[i].y = (int)(cyClient / 2 * (1 - sin(TWOPI * i / NUM)));
 		}
 
-		Polyline(hdc, apt, NUM);
+		Polyline(hdc, apt, NUM);*/
+
+		//±ß½ç¿òº¯ÊýRectangle»­¾ØÐÎ(´ø°×É«Ìî³ä)
+		//Rectangle(hdc, 10, 10, 50, 40);
+		
+		//±ß½ç¿òº¯ÊýEllipse»­ÍÖÔ²(´ø°×É«Ìî³ä)
+		/*Ellipse(hdc, 1, 1, 50, 40);*/
+
+		//±ß½ç¿òº¯ÊýRoundRect»­Ô²½Ç¾ØÐÎ(´ø°×É«Ìî³ä)
+		RoundRect(hdc, 1, 1, 50, 40, 15, 15);
 		return 0;
 
 	case WM_DESTROY:
