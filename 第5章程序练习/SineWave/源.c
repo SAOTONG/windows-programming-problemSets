@@ -122,7 +122,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 			apt[i].y = (int)(cyClient / 2 * (1 - sin(TWOPI * i / NUM)));
 		}
 
-		Polyline(hdc, apt, NUM);
+		Polyline(hdc, apt, NUM);*/
 		return 0;
 
 	case WM_DESTROY:
